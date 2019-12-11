@@ -1,2 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.arundhati.device"/>
+          package="com.arundhati.androidcleanarchitectureboilerplate.device"/>
