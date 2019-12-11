@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.ext
+
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "CLIENT_ID", "\"${globalConfiguration.clientId}\""
+        buildConfigField "String", "CLIENT_SECRET", "\"${globalConfiguration.clientSecret}\""
+    }
+
+    buildTypes {
+        debug{
+            buildConfigField "String", "APP_NAME", "\"${globalConfiguration.appName} debug\""
+        }
+        release {
+            buildConfigField "String", "APP_NAME", "\"${globalConfiguration.appName}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    def testDependencies = rootProject.ext.deviceTestDependencies
+    def dependencies = rootProject.ext.deviceDependencies
+
+    implementation project(':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    ext.daggerDependencies = {
+        api dependencies.daggerAndroid
+        api dependencies.daggerSupport
+        kapt dependencies.daggerCompiler
+        kapt dependencies.daggerProcessor
+        kaptTest dependencies.daggerCompiler
+    }
+
+    ext.test = {
+        androidTestImplementation testDependencies.androidxTestRunner
+        androidTestImplementation testDependencies.androidxTestRules
+        androidTestImplementation testDependencies.assertionsJunit
+        androidTestImplementation testDependencies.assertionsTruth
+        androidTestImplementation testDependencies.googleTruth
+    }
+
+    daggerDependencies()
+    test()
+
+}

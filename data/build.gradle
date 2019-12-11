@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.ext
+
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "BASE_URL", BASE_URL
+        }
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dataDependencies
+    def testDependencies = rootProject.ext.dataTestDependencies
+
+    implementation project(':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    ext.rxDependencies = {
+        api dependencies.rxAndroid
+    }
+
+    ext.networkDependencies = {
+        api dependencies.stetho
+        api dependencies.stethoOkhttp
+        api dependencies.okHttp
+        api dependencies.okHttpLogger
+        api dependencies.retrofit
+        api dependencies.retrofitConverter
+        api dependencies.retrofitAdapter
+    }
+
+    ext.test = {
+        testImplementation testDependencies.mockitoAndroid
+        testImplementation testDependencies.robolectric
+        androidTestImplementation testDependencies.androidxTestRunner
+        androidTestImplementation testDependencies.androidxTestRules
+        androidTestImplementation testDependencies.assertionsJunit
+        androidTestImplementation testDependencies.assertionsTruth
+        androidTestImplementation testDependencies.googleTruth
+    }
+
+    ext.others = {
+        api dependencies.androidxAppCompatV7
+        api dependencies.androidxAnnotations
+        api dependencies.googlePlayServicesAuth
+        api dependencies.googlePlayServicesLocation
+        kapt dependencies.daggerCompiler
+        kapt dependencies.daggerProcessor
+        kaptTest dependencies.daggerCompiler
+        api(dependencies.socketIO) {
+            exclude group: 'org.json', module: 'json'
+        }
+        api dependencies.playServicesBase
+    }
+
+    rxDependencies()
+    networkDependencies()
+    test()
+    others()
+
+}

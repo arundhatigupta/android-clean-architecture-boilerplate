@@ -1,0 +1,211 @@
+ext {
+    // Android
+    androidMinSdkVersion = 19
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
+    appName = "Android Clean Architecture Boilerplate"
+    clientId = "89cbe67961d14c4b9204"
+    clientSecret = "33fe771aa6a3046e35d1ca3e8e57ac421c3c9dee"
+    // Libraries
+    kotlinVersion = '1.3.10'
+    multidexVersion = '2.0.0'
+    rxKotlinVersion = '2.3.0'
+    rxJava2Version = '2.2.9'
+    rxAndroidVersion = '2.1.1'
+    rxBindingKotlinVersion = '2.2.0'
+    javaxAnnotationVersion = '1.3.2'
+    javaxInjectVersion = '1'
+    gsonVersion = '2.8.5'
+    exoplayerVersion = '2.9.0'
+    stethoVersion = '1.5.1'
+    okHttpVersion = '3.11.0'
+    retrofitVersion = '2.6.0'
+    supportLibraryVersion = '28.0.0'
+    timberVersion = '4.7.1'
+    daggerVersion = '2.23.1'
+    lifecycleVersion = '2.0.0'
+    navigationVersion = '2.0.0'
+    androidxSupportV4Version = '1.0.0'
+    androidxSupportV13Version = '1.0.0'
+    androidxAppCompatV7Version = '1.0.2'
+    androidxDesignVersion = '1.0.0'
+    androidxConstraintLayoutVersion = '1.1.2'
+    androidxRecyclerViewVersion = '1.0.0'
+    androidxSwipeRefreshLayoutVersion = '1.0.0'
+    androidxCardViewVersion = '1.0.0'
+    androidxAnnotationsVersion = '1.0.0'
+    googlePlayServicesAuthVersion = '16.0.1'
+    googlePlayServicesLocationVersion = '16.0.0'
+    socketVersion = '1.0.0'
+    playServicesVersion = "16.1.0"
+
+    // Testing
+    robolectricVersion = '4.3'
+    jUnitVersion = '4.12'
+    mockitoVersion = '1.9.5'
+    espressoVersion = '3.1.0'
+    mockitoKotlinVersion = '2.1.0'
+    mockitoAndroidVersion = '2.28.2'
+    roboelectricVersion = '4.3'
+    testCoreVersion = '1.0.0'
+    androidxAssertionsVersion = '1.0.0'
+    junitTestRunnerVersion = '1.1.0'
+    junitTestRulesVersion = '1.1.0'
+    googleTruthVersion = '0.42'
+    assertJVersion = '3.12.2'
+
+    dependencies = [
+            kotlin                    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}",
+            timber                    : "com.jakewharton.timber:timber:${timberVersion}",
+            androidxAnnotations       : "androidx.annotation:annotation:${androidxAnnotationsVersion}",
+            multidex                  : "androidx.multidex:multidex:${multidexVersion}",
+            viewModelAndLifecycle     : "androidx.lifecycle:lifecycle-extensions:${lifecycleVersion}",
+            lifecycleCompiler         : "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}",
+            dagger                    : "com.google.dagger:dagger:${daggerVersion}",
+            daggerAndroid             : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerCompiler            : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerSupport             : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor           : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            rxAndroid                 : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            rxKotlin                  : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            rxJava2                   : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
+            rxBindingKotlin           : "com.jakewharton.rxbinding2:rxbinding-kotlin:${rxBindingKotlinVersion}",
+            androidxDesign            : "com.google.android.material:material:${androidxDesignVersion}",
+            cardView                  : "androidx.cardview:cardview:${androidxCardViewVersion}",
+            constraintLayout          : "androidx.constraintlayout:constraintlayout:${androidxConstraintLayoutVersion}",
+            recyclerView              : "androidx.recyclerview:recyclerview:${androidxRecyclerViewVersion}",
+            swipeRefresh              : "androidx.swiperefreshlayout:swiperefreshlayout:${androidxSwipeRefreshLayoutVersion}",
+            stetho                    : "com.facebook.stetho:stetho:${stethoVersion}",
+            stethoOkhttp              : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+            okHttp                    : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger              : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            gson                      : "com.google.code.gson:gson:${gsonVersion}",
+            retrofit                  : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter         : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitAdapter           : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            androidxSupportV4         : "androidx.legacy:legacy-support-v4:${androidxSupportV4Version}",
+            androidxSupportV13        : "androidx.legacy:legacy-support-v13:${androidxSupportV13Version}",
+            androidxAppCompatV7       : "androidx.appcompat:appcompat:${androidxAppCompatV7Version}",
+            googlePlayServicesAuth    : "com.google.android.gms:play-services-auth:${googlePlayServicesAuthVersion}",
+            googlePlayServicesLocation: "com.google.android.gms:play-services-location:${googlePlayServicesLocationVersion}",
+            socketIO                  : "io.socket:socket.io-client:${socketVersion}",
+            playServicesBase          : "com.google.android.gms:play-services-base:$playServicesVersion",
+    ]
+
+    testDependencies = [
+            junit                   : "junit:junit:${jUnitVersion}",
+            kotlinJUnit             : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+            testCore                : "androidx.test:core:${testCoreVersion}",
+            assertj                 : "org.assertj:assertj-core:${assertJVersion}",
+            androidxTestRunner      : "androidx.test:runner:${junitTestRunnerVersion}",
+            androidxTestRules       : "androidx.test:runner:${junitTestRulesVersion}",
+            assertionsJunit         : "androidx.test.ext:junit:${androidxAssertionsVersion}",
+            assertionsTruth         : "androidx.test.ext:truth:${androidxAssertionsVersion}",
+            googleTruth             : "com.google.truth:truth:${googleTruthVersion}",
+            mockito                 : "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoKotlinVersion}",
+            mockitoAndroid          : "org.mockito:mockito-android:${mockitoAndroidVersion}",
+            espressoCore            : "androidx.test.espresso:espresso-core:${espressoVersion}",
+            espressoIntents         : "androidx.test.espresso:espresso-intents:${espressoVersion}",
+            espressoContrib         : "androidx.test.espresso:espresso-contrib:${espressoVersion}",
+            espressoAccessibility   : "androidx.test.espresso:espresso-accessibility:${espressoVersion}",
+            espressoIdlingConcurrent: "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}",
+            espressoIdlingResource  : "androidx.test.espresso:espresso-idling-resource:${espressoVersion}",
+            robolectric             : "org.robolectric:robolectric:${robolectricVersion}",
+            testHelperLiveData      : "androidx.arch.core:core-testing:${lifecycleVersion}",
+    ]
+
+    appDependencies = [
+            multidex             : "${dependencies.multidex}",
+            androidxAnnotations  : "${dependencies.androidxAnnotations}",
+            androidxSupportV4    : "${dependencies.androidxSupportV4}",
+            androidxSupportV13   : "${dependencies.androidxSupportV13}",
+            viewModelAndLifecycle: "${dependencies.viewModelAndLifecycle}",
+            lifecycleCompiler    : "${dependencies.lifecycleCompiler}",
+            androidxDesign       : "${dependencies.androidxDesign}",
+            cardView             : "${dependencies.cardView}",
+            constraintLayout     : "${dependencies.constraintLayout}",
+            recyclerView         : "${dependencies.recyclerView}",
+            swipeRefresh         : "${dependencies.swipeRefresh}",
+            daggerCompiler       : "${dependencies.daggerCompiler}",
+            daggerProcessor      : "${dependencies.daggerProcessor}",
+    ]
+
+    appTestDependencies = [
+            espressoIntents         : "${testDependencies.espressoIntents}",
+            espressoContrib         : "${testDependencies.espressoContrib}",
+            espressoAccessibility   : "${testDependencies.espressoAccessibility}",
+            espressoIdlingConcurrent: "${testDependencies.espressoIdlingConcurrent}",
+            espressoIdlingResource  : "${testDependencies.espressoIdlingResource}",
+            testHelperLiveData      : "${testDependencies.testHelperLiveData}",
+    ]
+
+    deviceTestDependencies = [
+            androidxTestRunner: "${testDependencies.androidxTestRunner}",
+            androidxTestRules : "${testDependencies.androidxTestRules}",
+            assertionsJunit   : "${testDependencies.assertionsJunit}",
+            assertionsTruth   : "${testDependencies.assertionsTruth}",
+            googleTruth       : "${testDependencies.googleTruth}",
+    ]
+
+    deviceDependencies = [
+            daggerCompiler : "${dependencies.daggerCompiler}",
+            daggerProcessor: "${dependencies.daggerProcessor}",
+            daggerAndroid  : "${dependencies.daggerAndroid}",
+            daggerSupport  : "${dependencies.daggerSupport}"
+    ]
+
+    dataDependencies = [
+            androidxAppCompatV7       : "${dependencies.androidxAppCompatV7}",
+            rxAndroid                 : "${dependencies.rxAndroid}",
+            androidxAnnotations       : "${dependencies.androidxAnnotations}",
+            stetho                    : "${dependencies.stetho}",
+            stethoOkhttp              : "${dependencies.stethoOkhttp}",
+            okHttp                    : "${dependencies.okHttp}",
+            okHttpLogger              : "${dependencies.okHttpLogger}",
+            retrofit                  : "${dependencies.retrofit}",
+            retrofitConverter         : "${dependencies.retrofitConverter}",
+            retrofitAdapter           : "${dependencies.retrofitAdapter}",
+            daggerCompiler            : "${dependencies.daggerCompiler}",
+            daggerProcessor           : "${dependencies.daggerProcessor}",
+            googlePlayServicesAuth    : "${dependencies.googlePlayServicesAuth}",
+            googlePlayServicesLocation: "${dependencies.googlePlayServicesLocation}",
+            socketIO                  : "${dependencies.socketIO}",
+            playServicesBase          : "${dependencies.playServicesBase}",
+    ]
+
+    dataTestDependencies = [
+            mockitoAndroid    : "${testDependencies.mockitoAndroid}",
+            robolectric       : "${testDependencies.robolectric}",
+            androidxTestRunner: "${testDependencies.androidxTestRunner}",
+            androidxTestRules : "${testDependencies.androidxTestRules}",
+            assertionsJunit   : "${testDependencies.assertionsJunit}",
+            assertionsTruth   : "${testDependencies.assertionsTruth}",
+            googleTruth       : "${testDependencies.googleTruth}",
+    ]
+
+    domainDependencies = [
+            kotlin         : "${dependencies.kotlin}",
+            rxJava2        : "${dependencies.rxJava2}",
+            rxBindingKotlin: "${dependencies.rxBindingKotlin}",
+            timber         : "${dependencies.timber}",
+            gson           : "${dependencies.gson}",
+            dagger         : "${dependencies.dagger}",
+            daggerAndroid  : "${dependencies.daggerAndroid}",
+            daggerCompiler : "${dependencies.daggerCompiler}",
+            daggerSupport  : "${dependencies.daggerSupport}",
+            daggerProcessor: "${dependencies.daggerProcessor}",
+            rxKotlin       : "${dependencies.rxKotlin}",
+    ]
+
+    domainTestDependencies = [
+            junit      : "${testDependencies.junit}",
+            kotlinJUnit: "${testDependencies.kotlinJUnit}",
+            mockito    : "${testDependencies.mockito}",
+            assertj    : "${testDependencies.assertj}",
+    ]
+
+    bottomBarDependencies = [
+            androidxDesign       : "${dependencies.androidxDesign}",
+            androidxAppCompatV7  : "${dependencies.androidxAppCompatV7}"
+    ]
+}

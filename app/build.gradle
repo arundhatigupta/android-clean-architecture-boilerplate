@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.ext
+
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.arundhati.androidcleanarchitectureboilerplate"
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "com.arundhati.androidcleanarchitectureboilerplate.TestAppJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.appDependencies
+    def testDependencies = rootProject.ext.appTestDependencies
+
+    implementation project(':data')
+    implementation project(':device')
+    implementation project(':domain')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    ext.androidxDependencies = {
+        implementation dependencies.multidex
+        implementation dependencies.androidxSupportV4
+        implementation dependencies.androidxSupportV13
+        implementation dependencies.viewModelAndLifecycle
+        implementation dependencies.androidxDesign
+        implementation dependencies.cardView
+        implementation dependencies.constraintLayout
+        implementation dependencies.recyclerView
+        implementation dependencies.swipeRefresh
+        kapt dependencies.lifecycleCompiler
+        kapt dependencies.daggerCompiler
+        kapt dependencies.daggerProcessor
+        kaptTest dependencies.daggerCompiler
+    }
+
+    ext.test = {
+        testImplementation testDependencies.testHelperLiveData
+        androidTestImplementation testDependencies.espressoIntents
+        androidTestImplementation testDependencies.espressoContrib
+        androidTestImplementation testDependencies.espressoAccessibility
+        androidTestImplementation testDependencies.espressoIdlingConcurrent
+        androidTestImplementation testDependencies.espressoIdlingResource
+    }
+
+    ext.others = {
+        implementation dependencies.androidxAnnotations
+    }
+
+    androidxDependencies()
+    test()
+    others()
+
+}

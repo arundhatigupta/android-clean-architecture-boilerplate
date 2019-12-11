@@ -1,0 +1,54 @@
+apply plugin: 'java-library'
+
+apply plugin: 'kotlin'
+
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.domainDependencies
+    def testDependencies = rootProject.ext.domainTestDependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    ext.kotlinDependencies = {
+        api dependencies.kotlin
+    }
+
+    ext.rxDependencies = {
+        api dependencies.rxKotlin
+        api dependencies.rxJava2
+        api dependencies.rxBindingKotlin
+    }
+
+    ext.daggerDependencies = {
+        api dependencies.dagger
+        api dependencies.daggerAndroid
+        api dependencies.daggerSupport
+        kapt dependencies.daggerCompiler
+        kapt dependencies.daggerProcessor
+        kaptTest dependencies.daggerCompiler
+    }
+
+    ext.test = {
+        testApi testDependencies.kotlinJUnit
+        testApi testDependencies.assertj
+        testApi testDependencies.mockito
+    }
+
+    ext.others = {
+        api dependencies.gson
+        api dependencies.timber
+    }
+
+    kotlinDependencies()
+    rxDependencies()
+    daggerDependencies()
+    test()
+    others()
+
+}
