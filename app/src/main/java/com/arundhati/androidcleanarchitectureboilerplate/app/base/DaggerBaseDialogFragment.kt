@@ -44,7 +44,7 @@ abstract class DaggerBaseDialogFragment<VM : BaseViewModel> : DaggerAppCompatDia
 
 
     /**
-     * Use this method for observing Rxview events
+     * Observes Rxview events
      */
     open fun observeClickEvents(){
 

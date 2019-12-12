@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * this is base ViewHolder, extend this only for creating viewholder and maintain the base behaviour
+ * This is base ViewHolder that can be extended to create a viewholder while maintaining the base behaviour.
  */
 abstract class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view){
 

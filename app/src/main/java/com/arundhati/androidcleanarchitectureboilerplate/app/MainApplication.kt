@@ -10,7 +10,7 @@ import dagger.android.support.DaggerApplication
 import timber.log.Timber
 
 /**
- * This is the main base application for the Android application.
+ * This is the main base for the Android application.
  */
 class MainApplication : BaseApplication() {
 

@@ -7,16 +7,11 @@ import javax.inject.Inject
 
 
 /**
- * this is application base activity, extend this class for creating any activity
+ * This is the base activity that can be extended to create any activity
  */
 abstract class BaseActivity<VM : BaseViewModel>: DaggerAppCompatActivity(){
 
     protected lateinit var viewModel: VM
-
-    /**
-     * todo need to think as it is possible to set it from resource value
-     * todo if theme is not change dynamically
-     */
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -31,33 +26,33 @@ abstract class BaseActivity<VM : BaseViewModel>: DaggerAppCompatActivity(){
     }
 
     /**
-     * implement this and provide viewmodel
+     * Returns viewmodel instance when implemented
      */
     abstract fun getViewModelInstance(): VM
 
     /**
-     * Use this method for observing Rxview events
+     * Observes Rxview events when implemented
      */
     open fun observeClickEvents(){
 
     }
 
     /**
-     * Use this method instead of onCreate. This is called after viewmodel creating and observable setting
+     * Used instead of onCreate
      */
     open fun setUpView(){
 
     }
 
     /**
-     * Use this method for observing livedata from viewmodel
+     * Observes livedata from viewmodel
      */
     open fun observeViewModelEvents(){
 
     }
 
     /**
-     * return layout id to set inside {@link #setContentView(id)}
+     * Returns layout id to set inside {@link #setContentView(id)}
      */
     abstract fun getLayoutResId(): Int
 

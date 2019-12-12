@@ -33,7 +33,7 @@ abstract class DaggerBaseFragment<VM : BaseViewModel> : DaggerFragment() {
     }
 
     /**
-     * Use this method instead of onCreate. This is called after viewmodel creating and observable setting
+     * Use this method instead of onCreate. This is called after viewmodel creation and setting observers.
      */
     open fun setUpView() {
 
@@ -50,25 +50,25 @@ abstract class DaggerBaseFragment<VM : BaseViewModel> : DaggerFragment() {
     }
 
     /**
-     * return layout id to set inside {@link #setContentView(id)}
+     * Return layout id to set inside {@link #setContentView(id)}
      */
     abstract fun getLayoutResId(): Int
 
     /**
-     * implement this and provide viewmodel
+     * Implement to return the viewmodel instance
      */
     abstract fun getViewModelInstance(): VM
 
 
     /**
-     * Use this method for observing Rxview events
+     * Observes Rxview events
      */
     open fun observeClickEvents() {
 
     }
 
     /**
-     * Use this method for observing livedata from viewmodel
+     * Observes live data from viewmodel
      */
     open fun observeViewModelEvents() {
 

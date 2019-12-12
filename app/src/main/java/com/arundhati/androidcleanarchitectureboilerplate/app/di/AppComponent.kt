@@ -23,6 +23,7 @@ import javax.inject.Singleton
         AppActivityBindingModule::class
     ]
 )
+
 interface AppComponent : AndroidInjector<MainApplication> {
 
     @Component.Builder

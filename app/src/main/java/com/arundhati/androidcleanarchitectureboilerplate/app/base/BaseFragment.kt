@@ -27,9 +27,7 @@ abstract class BaseFragment : DaggerFragment() {
         setUpView()
     }
 
-    /**
-     * Use this method instead of onCreate. This is called after viewmodel creating and observable setting
-     */
+
     open fun setUpView() {
 
     }
@@ -39,7 +37,7 @@ abstract class BaseFragment : DaggerFragment() {
     }
 
     /**
-     * return layout res id  to inflate view from {@link #onCreateView} method
+     * Return layout res id  to inflate view from {@link #onCreateView} method
      */
     abstract fun getLayoutResId(): Int
 
